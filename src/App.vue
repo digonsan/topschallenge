@@ -15,20 +15,30 @@
           v-for="(item, i) in items"
           :key="i"
         >
-          <span v-if="page == item.page">
-            <v-list-tile-action class="orange lighten-2">
+          
+          <span v-if="page == item.page" class="orange lighten-4">
+            <v-list-tile-action class="pa-2 ">
               <v-icon v-bind:title="item.title" v-html="item.icon" color="orange darken-2" ></v-icon>
             </v-list-tile-action>
           </span>
-          <span v-else>
-            <v-list-tile-action >
+          <span v-else v-on:click="page=item.page" >
+            <v-list-tile-action class="pa-2">
               <v-icon v-bind:title="item.title" v-html="item.icon" color="orange darken-2" ></v-icon>
             </v-list-tile-action>
+          </span>
+          
+          <span v-if="page == item.page" class="orange lighten-4">
+            <v-list-tile-content class="pa-2 ">
+              <v-list-tile-title v-text="item.title" class="orange--text"></v-list-tile-title>
+            </v-list-tile-content>
+          </span>
+          <span v-else v-on:click="page=item.page">
+            <v-list-tile-content class="pa-2">
+              <v-list-tile-title v-text="item.title" class="orange--text"></v-list-tile-title>
+            </v-list-tile-content>
           </span>
 
-          <v-list-tile-content >
-            <v-list-tile-title v-text="item.title" class="orange--text"></v-list-tile-title>
-          </v-list-tile-content>
+          
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -37,7 +47,7 @@
       :clipped-left="clipped"
     >
       <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon v-html="miniVariant ? 'fas fa-bars' : 'fas fa-chevron-left'"></v-icon>
+        <v-icon v-html="miniVariant ? 'fas fa-chevron-right' : 'fas fa-chevron-left'"></v-icon>
       </v-btn> 
       <v-toolbar-title v-text="title"></v-toolbar-title>
     </v-toolbar>
