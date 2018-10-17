@@ -38,10 +38,40 @@
           </v-layout>
         </v-container>
 
+        <v-container row center>
+          <v-layout justify-space-around>
+            <v-flex  v-for="i in quick_links" :key="`1${i}`" xs2>
+              <v-btn style="height:110px; width:160px" color="orange accent-2">
+                <v-layout justify-space-around align-center>
+                  {{i.title}}
+                  <span>
+                    <v-icon v-html="i.pic"></v-icon>
+                  </span> 
+                </v-layout>
+              </v-btn>
+            </v-flex>
+          </v-layout>
+        </v-container>
+
         <v-container v-if="admin" row grid-list-md text-xs-center>
           <v-layout justify-space-around>
             <v-flex xs12 class="orange darken-2 white--text">
               <h2>Admin Options</h2>
+            </v-flex>
+          </v-layout>
+        </v-container>
+
+        <v-container v-if="admin" row  center>
+          <v-layout justify-space-around>
+            <v-flex  v-for="i in admin_options" :key="`1${i}`" xs2>
+              <v-btn block style="height:110px" color="orange accent-2">
+                <v-layout justify-space-around align-center>
+                  {{i.title}}
+                  <span>
+                    <v-icon v-html="i.pic"></v-icon>
+                  </span>   
+                </v-layout>
+              </v-btn>
             </v-flex>
           </v-layout>
         </v-container>
@@ -90,19 +120,19 @@ export default {
         {place:'Sydney', time: renderTime(11)}
       ],
       quick_links:[ //*** top 6 of the current user if they don't have 6 do less or random
-        {title:'Link 1', desc: 'blah blah blah blah', pic: '*pic*'},
-        {title:'Link 2', desc: 'blah blah blah blah', pic: '*pic*'},
-        {title:'Link 3', desc: 'blah blah blah blah', pic: '*pic*'},
-        {title:'Link 4', desc: 'blah blah blah blah', pic: '*pic*'},
-        {title:'Link 5', desc: 'blah blah blah blah', pic: '*pic*'},
-        {title:'Link 6', desc: 'blah blah blah blah', pic: '*pic*'}
+        {title:'Link 1', pic: 'fas fa-question'},
+        {title:'Link 2', pic: 'fas fa-question'},
+        {title:'Link 3', pic: 'fas fa-question'},
+        {title:'Link 4', pic: 'fas fa-question'},
+        {title:'Link 5', pic: 'fas fa-question'},
+        {title:'Link 6', pic: 'fas fa-question'}
       ],
       admin_options:[
-        {title:'Users', pic: '*pic*'},
-        {title:'Plugins',pic: '*pic*'},
-        {title:'Py Scripts', pic: '*pic*'},
-        {title:'Table Sizes', pic: '*pic*'},
-        {title:'Logs', pic: '*pic*'}
+        {title:'Users', pic: 'fas fa-users-cog fa-3x'},
+        {title:'Plugins',pic: 'fas fa-plug fa-3x'},
+        {title:'Py Scripts', pic: 'fas fa-code fa-3x'},
+        {title:'Table Sizes', pic: 'fas fa-table fa-3x'},
+        {title:'Logs', pic: 'fas fa-chart-line fa-3x'}
       ]
     }
   }
